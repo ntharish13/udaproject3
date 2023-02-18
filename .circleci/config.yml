@@ -18,8 +18,8 @@ jobs:
       - run: echo world
   build:
     docker:
-      -image: cimg/base:2020.01
-      steps:
+      - image: cimg/base:2020.01
+    steps:
       - checkout
       - run:
           name: "echo an env var that is part of our project"
