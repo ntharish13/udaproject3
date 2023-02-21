@@ -8,10 +8,12 @@ jobs:
     steps:
       - checkout
       - run:
-        name: "echo an env var that is part of our project"
-        command: |
-          echo $NAME
+          name: "echo an env var that is part of our project"
+          command: |
+            echo $NAME
+
 workflows:
   build:
     jobs:
       - build
+
