@@ -13,7 +13,7 @@ jobs:
             echo $MY_ENV_VAR
 
 workflows:
-  build:
+  test-env-vars:
     jobs:
       - build
 
