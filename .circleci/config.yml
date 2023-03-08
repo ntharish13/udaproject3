@@ -23,22 +23,22 @@ jobs:
               #--region us-east-1
 
 # Exercise: Config and Deployment
-  configure_infrastructure: 
-    docker:
-      - image: python:3.7-alpine3.11
-    steps:
-      - checkout
-      - add_ssh_keys:
-          fingerprints: ["57:72:a0:bc:ad:86:bd:f1:90:1a:ef:d5:94:d6:a7:ff"]
-      - run:
-          name: Install dependencies
-          command: |
-            # install the dependencies needed for your playbook
-            apk add --update ansible 
-      - run:
-          name: Configure server
-          command: |
-            ansible-playbook -i inventory.txt main-remote.yml
+  #configure_infrastructure: 
+    #docker:
+    #  - image: python:3.7-alpine3.11
+    #steps:
+    # - checkout
+    #  - add_ssh_keys:
+    #     fingerprints: ["57:72:a0:bc:ad:86:bd:f1:90:1a:ef:d5:94:d6:a7:ff"]
+    #  - run:
+    #      name: Install dependencies
+    #      command: |
+    #        # install the dependencies needed for your playbook
+    #        apk add --update ansible 
+    #  - run:
+    #      name: Configure server
+    #      command: |
+    #        ansible-playbook -i inventory.txt main-remote.yml
 
 # Exercise: Smoke Testing
   smoke_test:
@@ -64,4 +64,5 @@ workflows:
   myWorkflow:
     jobs:
       #- create_infrastructure
-      - configure_infrastructure
+      #- configure_infrastructure
+      - smoke_test
