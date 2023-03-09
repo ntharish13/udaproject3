@@ -152,16 +152,14 @@ jobs:
 # Sequential workflow
 workflows:
   # Name the workflow
-  myWorkflow:
-    jobs:
-      - create_and_deploy_front_end
-      - promote_to_production:
-          requires: 
-            - create_and_deploy_front_end
+    my_workflow:
+      jobs:
+        - create_and_deploy_front_end
+        - promote_to_production:
+            requires: 
+              - create_and_deploy_front_end
         - get_last_deployment_id
         - clean_up_old_front_end:
             requires:
               - get_last_deployment_id
               - promote_to_production
-      #- create_infrastructure
-      #- configure_infrastructure
